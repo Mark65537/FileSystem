@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 
 
@@ -8,6 +9,18 @@ namespace FileSystem
 {
     public class FileSystem
     {
+        /// <summary>
+        /// Extracts the contents of a zip file to a folder.
+        /// </summary>
+        /// <param name="pathFrom">The path to the zip file.</param>
+        /// <param name="pathTo">The path to the folder where the contents of the zip file will be extracted to.</param
+        public static void ExtractToFolder(string pathFrom, string pathTo)
+        {
+            if (!Directory.Exists(pathTo))
+            {
+                ZipFile.ExtractToDirectory(pathFrom, pathTo);
+            }
+        }
         public static bool IsImage(string filePath)
         {
             try
