@@ -9,6 +9,12 @@ namespace FileSystem
 {
     public class FileSystem
     {
+        public static void ReplaceAndCopyDir(string fromDir, string toDir)
+        {
+            if (Directory.Exists(toDir))
+                Directory.Delete(toDir, true);
+            CopyDir(fromDir, toDir);
+        }
         /// <summary>
         /// Extracts the contents of a zip file to a folder.
         /// </summary>
